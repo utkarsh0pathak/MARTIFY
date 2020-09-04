@@ -1,0 +1,34 @@
+﻿@model IEnumerable<TSSMARTIFYOnlineMart.Models.PaymentMode>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Payment Mode</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentModeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentModeName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PaymentModeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PaymentModeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PaymentModeID })
+        </td>
+    </tr>
+}
+
+</table>

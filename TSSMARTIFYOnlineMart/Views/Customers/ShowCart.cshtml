@@ -1,0 +1,59 @@
+﻿@model IEnumerable<TSSMARTIFYOnlineMart.Models.Cart>
+
+@{
+    /**/
+
+    ViewBag.Title = "ShowCart";
+    Layout = "~/Views/Shared/_AfterLoginLayout.cshtml";
+}
+
+<h2>YOUR'S CART DETAILS</h2>
+
+<p>
+    @Html.ActionLink("Back to product list", "ProductList")
+</p>
+@using (Html.BeginForm("CartCheckOut", "Customers", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <input type="submit" value="Checkout Cart" class="btn btn-primary" />
+
+}
+
+<p class="label label-danger">@TempData["CartStatus"]</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseQTY)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseQTY)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "ShowOrderDetails", new { id = item.CartID }) |
+                @Html.ActionLink("Delete", "ItemDelete", new { id = item.CartID })
+
+            </td>
+        </tr>
+    }
+
+</table>

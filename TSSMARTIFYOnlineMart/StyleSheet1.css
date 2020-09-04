@@ -1,0 +1,33 @@
+﻿
+body {
+    
+    background-image: url('logo/3d-triangle-shape-vivid-colors-theme-background_23-2148417307.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div {
+    color: white;
+    font-weight: bold;
+}
+/*h1 {
+    /background-color: black;/
+    color: AppWorkspace;
+    font-weight: bold;  
+}
+h2 {
+    /background-color: black;/
+    color: AppWorkspace;
+    font-weight: bold;
+}
+h3 {
+    /background-color: black;/
+    color: AppWorkspace;
+    font-weight: bold;
+}*/
+header {
+    /background-color: black;
+    / /background-color: tomato;
+    / color: AppWorkspace;
+    font-weight: bold;
+}

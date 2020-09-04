@@ -1,0 +1,49 @@
+﻿@model IEnumerable<TSSMARTIFYOnlineMart.Models.TransactionDetail>
+
+@{
+    ViewBag.Title = "ShowOrderedDetails";
+    Layout = "~/Views/Shared/_AfterLoginLayout.cshtml";
+}
+
+
+<h2>Ordered Details</h2>
+<p class="text text-primary h2">@ViewBag.BillNo</p>
+<p class="text text-primary h2">@ViewBag.BillDate</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bill.BillID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PruchaseQTY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseAmout)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bill.BillID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PruchaseQTY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseAmout)
+            </td>
+
+        </tr>
+    }
+<p class="text-right text-primary h1"> @ViewBag.BillTotalAmount</p>
+</table>
